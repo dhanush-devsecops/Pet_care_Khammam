@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paw Love Pet Care | Bank Colony, Khammam</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F3EE;
+  --bg2:#FFFEFB;
+  --bg3:#EEEAE3;
+  --green:#3A6B45;
+  --green2:#5A9068;
+  --green3:#C6DEC9;
+  --terra:#B85C38;
+  --terra2:#E8906C;
+  --gold:#C49A3C;
+  --gold2:#F0D08A;
+  --ink:#1C1C1C;
+  --ink2:#4A4A4A;
+  --ink3:#888;
+  --line:#DDD7CD;
+  --white:#FFFFFF;
+  --radius:16px;
+  --shadow:0 4px 32px rgba(0,0,0,0.07);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;line-height:1.6}
+img{display:block;max-width:100%; height:100%; object-fit: cover;}
+a{text-decoration:none;color:inherit}
+
+/* === SCROLLBAR === */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg3)}
+::-webkit-scrollbar-thumb{background:var(--green2);border-radius:99px}
+
+/* === NAV === */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5vw;height:72px;
+  background:rgba(247,243,238,0.94);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line);
+}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{
+  width:44px;height:44px;background:var(--green);border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;flex-shrink:0;
+}
+.logo-text{line-height:1.15}
+.logo-name{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:700;color:var(--ink)}
+.logo-sub{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink3)}
+.nav-menu{display:flex;align-items:center;gap:8px;list-style:none}
+.nav-menu a{
+  padding:8px 14px;border-radius:99px;
+  font-size:0.85rem;font-weight:500;color:var(--ink2);
+  transition:background 0.2s,color 0.2s;
+}
+.nav-menu a:hover{background:var(--bg3);color:var(--ink)}
+.nav-cta{
+  background:var(--green)!important;color:#fff!important;
+  padding:9px 20px!important;
+}
+.nav-cta:hover{background:var(--green2)!important}
+
+/* === HERO === */
+#hero{
+  min-height:100vh;
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;gap:4rem;
+  padding:100px 5vw 60px;
+  position:relative;overflow:hidden;
+}
+.hero-blob{
+  position:absolute;border-radius:50%;pointer-events:none;z-index:0;
+}
+.blob1{width:700px;height:700px;background:radial-gradient(circle,rgba(58,107,69,0.1) 0%,transparent 65%);top:-150px;right:-150px}
+.blob2{width:500px;height:500px;background:radial-gradient(circle,rgba(184,92,56,0.08) 0%,transparent 65%);bottom:-100px;left:-100px}
+.hero-left{position:relative;z-index:1;animation:fadeUp 0.7s ease both}
+.hero-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--green3);color:var(--green);
+  font-size:0.75rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;
+  padding:6px 16px;border-radius:99px;margin-bottom:1.4rem;
+}
+.hero-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.8rem,4.5vw,4.2rem);font-weight:700;line-height:1.08;
+  margin-bottom:1.2rem;color:var(--ink);
+}
+.hero-title .accent{color:var(--green);font-style:italic}
+.hero-desc{font-size:1.05rem;color:var(--ink2);line-height:1.75;max-width:460px;margin-bottom:2rem}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 26px;border-radius:99px;
+  font-family:'Outfit',sans-serif;font-size:0.95rem;font-weight:500;
+  cursor:pointer;border:none;transition:all 0.25s;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,0,0,0.13)}
+.btn-green{background:var(--green);color:#fff}
+.btn-green:hover{background:var(--green2)}
+.btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--ink);background:var(--ink);color:#fff}
+.btn-wa{background:#25D366;color:#fff}
+.btn-wa:hover{background:#1ebe5d}
+.btn-terra{background:var(--terra);color:#fff}
+.btn-terra:hover{background:var(--terra2)}
+
+.hero-right{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:14px;animation:fadeIn 0.8s 0.3s ease both}
+.hero-stat{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px;transition:transform 0.3s;
+}
+.hero-stat:hover{transform:translateY(-4px)}
+.stat-icon{font-size:1.8rem;margin-bottom:10px}
+.stat-val{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--green);line-height:1}
+.stat-lbl{font-size:0.8rem;color:var(--ink3);margin-top:4px}
+.hero-stat.wide{grid-column:span 2;background:var(--green);color:#fff;display:flex;align-items:center;gap:16px}
+.hero-stat.wide .stat-val{color:#fff}
+.hero-stat.wide .stat-lbl{color:rgba(255,255,255,0.7)}
+.hero-stat.wide .stat-icon{font-size:2.5rem;margin-bottom:0}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* === TICKER === */
+.ticker-wrap{
+  background:var(--green);color:#fff;
+  overflow:hidden;padding:14px 0;
+  border-top:1px solid rgba(255,255,255,0.15);
+  border-bottom:1px solid rgba(255,255,255,0.15);
+}
+.ticker-track{
+  display:flex;gap:0;
+  animation:ticker 30s linear infinite;
+  white-space:nowrap;
+}
+.ticker-track:hover{animation-play-state:paused}
+.ticker-item{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:0 32px;font-size:0.88rem;font-weight:500;letter-spacing:0.04em;
+}
+.ticker-dot{width:6px;height:6px;border-radius:50%;background:var(--gold2);flex-shrink:0}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* === SECTION BASE === */
+section{padding:80px 5vw}
+.section-eyebrow{
+  font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--terra);margin-bottom:10px;
+}
+.section-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,3.5vw,2.9rem);font-weight:700;line-height:1.18;
+  margin-bottom:12px;
+}
+.section-sub{font-size:0.98rem;color:var(--ink2);line-height:1.7;max-width:500px;margin-bottom:40px}
+
+/* === FAQ SECTION === */
+#faq{background:var(--white)}
+.faq-layout{display:grid;grid-template-columns:3fr 2fr;gap:4rem;align-items:start}
+.faq-grid{
+  display:flex;
+  flex-direction: column;
+  gap:20px;
+}
+.faq-item{
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:15px;
+}
+.faq-grid details summary{font-weight:600;cursor:pointer}
+.faq-grid details p{margin-top:10px;font-size:0.9rem;color:var(--ink2)}
+.faq-image-box{
+  background:var(--bg3);
+  border-radius:var(--radius);
+  height: 100%;
+  padding: 1rem;
+}
+.faq-image{
+  border-radius:var(--radius);
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  box-shadow:var(--shadow);
+}
+
+/* === BREEDS / PETS SECTION === */
+#pets{background:var(--bg2)}
+.pets-intro{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:50px}
+.pets-intro .section-sub{margin-bottom:0}
+.pets-filter{display:flex;gap:8px;flex-wrap:wrap;align-self:end;justify-content:flex-end}
+.filter-btn{
+  padding:7px 18px;border-radius:99px;font-size:0.82rem;font-weight:500;
+  border:1.5px solid var(--line);background:transparent;color:var(--ink2);
+  cursor:pointer;transition:all 0.2s;
+}
+.filter-btn.active,.filter-btn:hover{background:var(--green);color:#fff;border-color:var(--green)}
+
+.pets-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:16px;
+}
+.pet-card{
+  background:var(--white);border:1px solid var(--line);border-radius:20px;
+  overflow:hidden;transition:transform 0.3s,box-shadow 0.3s;cursor:default;
+  position:relative;
+}
+.pet-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.pet-card-img{
+  height:180px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+
+.pet-badge{
+  position:absolute;top:10px;right:10px;
+  font-size:0.65rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;
+  padding:3px 9px;border-radius:99px; z-index: 10;
+}
+.badge-dog{background:#FFE0C8;color:#A04020}
+.badge-cat{background:#D8D8FF;color:#3030A0}
+.badge-bird{background:#C8EEFF;color:#105070}
+.badge-rabbit{background:#FFD6EE;color:#902060}
+.badge-fish{background:#C0F0E8;color:#106050}
+.badge-hamster{background:#FFE090;color:#805010}
+
+.pet-body{padding:14px 16px}
+.pet-name{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:700;margin-bottom:4px}
+.pet-desc{font-size:0.78rem;color:var(--ink3);line-height:1.5}
+.pet-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:10px}
+.pet-tag{
+  font-size:0.68rem;padding:3px 8px;border-radius:99px;
+  background:var(--bg3);color:var(--ink2);
+}
+
+/* === SERVICES === */
+#services{background:var(--bg)}
+.services-layout{display:grid;grid-template-columns:1fr 2fr;gap:4rem;align-items:start}
+.services-sticky{position:sticky;top:100px}
+.services-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.svc-card{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:28px 24px;transition:all 0.3s;position:relative;overflow:hidden;
+}
+.svc-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  transform:scaleX(0);transform-origin:left;transition:transform 0.35s ease;
+}
+.svc-card:hover::after{transform:scaleX(1)}
+.svc-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.svc1::after{background:var(--green)}
+.svc2::after{background:var(--terra)}
+.svc3::after{background:var(--gold)}
+.svc4::after{background:#7C5CBF}
+.svc-icon{font-size:2.2rem;margin-bottom:14px}
+.svc-card h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:700;margin-bottom:8px}
+.svc-card p{font-size:0.85rem;color:var(--ink2);line-height:1.65}
+.svc-list{list-style:none;margin-top:12px;display:flex;flex-direction:column;gap:5px}
+.svc-list li{font-size:0.8rem;color:var(--ink3);display:flex;align-items:center;gap:6px}
+.svc-list li::before{content:'✓';color:var(--green);font-weight:700;font-size:0.75rem}
+
+/* === WHY US === */
+#why{background:var(--green)}
+#why .section-eyebrow{color:var(--green3)}
+#why .section-title{color:#fff}
+#why .section-sub{color:rgba(255,255,255,0.7);max-width:600px;margin-bottom:50px}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.why-card{
+  background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);
+  border-radius:var(--radius);padding:28px;transition:background 0.3s;
+}
+.why-card:hover{background:rgba(255,255,255,0.13)}
+.why-icon{
+  width:52px;height:52px;border-radius:14px;background:rgba(255,255,255,0.12);
+  display:flex;align-items:center;justify-content:center;font-size:1.6rem;
+  margin-bottom:16px;
+}
+.why-card h4{color:#fff;font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:700;margin-bottom:8px}
+.why-card p{color:rgba(255,255,255,0.65);font-size:0.85rem;line-height:1.6}
+
+/* === TESTIMONIALS === */
+#reviews{background:var(--bg2)}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.review-card{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:28px;transition:transform 0.3s;
+}
+.review-card:hover{transform:translateY(-4px)}
+.review-stars{color:var(--gold);font-size:1rem;letter-spacing:2px;margin-bottom:12px}
+.review-text{font-size:0.9rem;color:var(--ink2);line-height:1.7;margin-bottom:16px;font-style:italic}
+.review-author{display:flex;align-items:center;gap:12px}
+.review-avatar{
+  width:42px;height:42px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;flex-shrink:0;
+}
+.review-name{font-weight:600;font-size:0.88rem}
+.review-pet{font-size:0.78rem;color:var(--ink3)}
+
+/* === LOCATION === */
+#location{background:var(--bg)}
+.location-wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.map-frame{
+  border-radius:20px;overflow:hidden;
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);height:380px;
+}
+.map-frame iframe{width:100%;height:100%;border:none}
+.loc-cards{display:flex;flex-direction:column;gap:14px}
+.loc-card{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px 20px;display:flex;gap:14px;align-items:flex-start;
+  transition:border-color 0.2s;
+}
+.loc-card:hover{border-color:var(--green2)}
+.loc-icon{
+  width:44px;height:44px;border-radius:12px;background:var(--bg3);
+  display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;
+}
+.loc-label{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink3);margin-bottom:4px}
+.loc-val{font-size:0.95rem;font-weight:500;line-height:1.5}
+.loc-val a{color:var(--green);transition:color 0.2s}
+.loc-val a:hover{color:var(--terra)}
+
+/* === CONTACT === */
+#contact{background:var(--ink);color:#fff}
+#contact .section-eyebrow{color:var(--green3)}
+#contact .section-title{color:#fff}
+#contact .section-sub{color:rgba(255,255,255,0.6);margin-bottom:40px}
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.contact-left{display:flex;flex-direction:column;gap:16px}
+.contact-cta-cards{display:flex;flex-direction:column;gap:12px}
+.cta-card{
+  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);
+  border-radius:var(--radius);padding:18px 20px;
+  display:flex;align-items:center;gap:14px;
+  transition:background 0.2s;
+}
+.cta-card:hover{background:rgba(255,255,255,0.1)}
+.cta-icon{font-size:1.5rem}
+.cta-lbl{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.5);margin-bottom:3px}
+.cta-val{font-size:1rem;font-weight:600;color:#fff}
+.form-box{
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);
+  border-radius:20px;padding:32px;
+}
+.form-box h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:#fff;margin-bottom:20px}
+.fg{margin-bottom:16px}
+.fg label{display:block;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.5);margin-bottom:6px}
+.fg input,.fg textarea,.fg select{
+  width:100%;background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.15);border-radius:10px;
+  padding:12px 14px;font-family:'Outfit',sans-serif;font-size:0.95rem;color:#fff;outline:none;
+  transition:border-color 0.2s;
+}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,0.3)}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--green2)}
+.fg textarea{resize:vertical;min-height:100px}
+.fg select{appearance:none;cursor:pointer}
+.fg select option{background:#1C1C1C}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.submit-btn{
+  width:100%;padding:14px;background:var(--green);color:#fff;
+  border:none;border-radius:99px;font-family:'Outfit',sans-serif;
+  font-size:1rem;font-weight:600;cursor:pointer;
+  transition:background 0.2s,transform 0.2s;letter-spacing:0.02em;
+}
+.submit-btn:hover{background:var(--green2);transform:translateY(-2px)}
+
+/* === FOOTER === */
+footer{
+  background:#111;color:rgba(255,255,255,0.45);
+  padding:24px 5vw;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  font-size:0.82rem;
+}
+footer strong{color:rgba(255,255,255,0.8)}
+.footer-links{display:flex;gap:20px}
+.footer-links a{color:rgba(255,255,255,0.45);transition:color 0.2s}
+.footer-links a:hover{color:var(--green2)}
+
+/* === WA FLOAT === */
+.wa-btn{
+  position:fixed;bottom:28px;right:28px;z-index:999;
+  width:58px;height:58px;border-radius:50%;
+  background:#25D366;color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:1.7rem;
+  text-decoration:none;
+  box-shadow:0 4px 20px rgba(37,211,102,0.45);
+  animation:waPulse 2.5s ease-in-out infinite;
+  transition:transform 0.2s;
+}
+.wa-btn:hover{transform:scale(1.12)}
+@keyframes waPulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.45)}50%{box-shadow:0 4px 36px rgba(37,211,102,0.75)}}
+
+/* === DIVIDER === */
+.paw-row{text-align:center;padding:6px 0;font-size:1.3rem;letter-spacing:10px;color:var(--line)}
+
+/* === RESPONSIVE === */
+@media(max-width:900px){
+  #hero{grid-template-columns:1fr;padding-top:90px}
+  .hero-right{display:none}
+  .faq-layout{grid-template-columns:1fr}
+  .faq-image-box{display:none}
+  .pets-intro{grid-template-columns:1fr}
+  .pets-filter{justify-content:flex-start}
+  .services-layout{grid-template-columns:1fr}
+  .services-sticky{position:static}
+  .services-grid{grid-template-columns:1fr}
+  .location-wrap{grid-template-columns:1fr}
+  .contact-layout{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  footer{flex-direction:column;text-align:center}
+  .footer-links{justify-content:center}
+  .nav-menu{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="logo">
+    <div class="logo-mark">🐾</div>
+    <div class="logo-text">
+      <div class="logo-name">Paw Love</div>
+      <div class="logo-sub">Pet Care · Khammam</div>
+    </div>
+  </a>
+  <ul class="nav-menu">
+    <li><a href="#pets">Our Pets</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">About Us</a></li>
+    <li><a href="#location">Location</a></li>
+    <li><a href="#contact" class="nav-cta">Book Appointment</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="hero-blob blob1"></div>
+  <div class="hero-blob blob2"></div>
+  <div class="hero-left">
+    <div class="hero-pill">🏥 Khammam's Trusted Pet Care</div>
+    <h1 class="hero-title">Your Partner in<br><span class="accent">Pet Wellness</span></h1>
+    <p class="hero-desc">Expert veterinary care, professional grooming, and premium pet supplies — right in the heart of Bank Colony, Khammam. We care for dogs, cats, birds, rabbits, fish & more.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn btn-green">📅 Book Appointment</a>
+      <a href="tel:+918904583733" class="btn btn-ghost">📞 Call Now</a>
+      <a href="https://wa.me/918904583733" target="_blank" class="btn btn-wa">💬 WhatsApp</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stat wide">
+      <div class="stat-icon">🐾</div>
+      <div>
+        <div class="stat-val">500+</div>
+        <div class="stat-lbl">Happy pet families served</div>
+      </div>
+    </div>
+    <div class="hero-stat">
+      <div class="stat-icon">🩺</div>
+      <div class="stat-val">3-in-1</div>
+      <div class="stat-lbl">Vet + Grooming + Store</div>
+    </div>
+    <div class="hero-stat">
+      <div class="stat-icon">⭐</div>
+      <div class="stat-val">4.9</div>
+      <div class="stat-lbl">Customer rating</div>
+    </div>
+    <div class="hero-stat">
+      <div class="stat-icon">🧼</div>
+      <div class="stat-val">100%</div>
+      <div class="stat-lbl">Hygienic environment</div>
+    </div>
+    <div class="hero-stat">
+      <div class="stat-icon">📍</div>
+      <div class="stat-val">Local</div>
+      <div class="stat-lbl">Bank Colony, Khammam</div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker-wrap">
+  <div class="ticker-track" id="ticker">
+    <span class="ticker-item"><span class="ticker-dot"></span>Golden Retriever</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Persian Cat</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Labrador</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Siamese Cat</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Beagle</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Cockatiel</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>German Shepherd</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Bengal Cat</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Shih Tzu</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Lovebird</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Pomeranian</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Rabbit</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Goldfish</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Hamster</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Indie Dog</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Maine Coon</span>
+  </div>
+</div>
+
+<section id="pets">
+  <div class="pets-intro">
+    <div>
+      <div class="section-eyebrow">Animals We Care For</div>
+      <h2 class="section-title">All Your Beloved<br>Pets, Welcome Here</h2>
+      <p class="section-sub">From playful dogs to graceful cats, chirpy birds to peaceful fish — every pet deserves the best care, and we're here to provide it.</p>
+    </div>
+    <div class="pets-filter">
+      <button class="filter-btn active" onclick="filterPets('all',this)">All Pets</button>
+      <button class="filter-btn" onclick="filterPets('dog',this)">🐕 Dogs</button>
+      <button class="filter-btn" onclick="filterPets('cat',this)">🐈 Cats</button>
+      <button class="filter-btn" onclick="filterPets('bird',this)">🦜 Birds</button>
+      <button class="filter-btn" onclick="filterPets('other',this)">🐇 Others</button>
+    </div>
+  </div>
+  <div class="pets-grid" id="petsGrid">
+
+    <div class="pet-card" data-type="dog">
+      <div class="pet-card-img"><img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=600&q=80" alt="Golden Retriever"><span class="pet-badge badge-dog">Dog</span></div>
+      <div class="pet-body">
+        <div class="pet-name">Golden Retriever</div>
+        <div class="pet-desc">Friendly, loyal, and great with families. One of India's most beloved breeds.</div>
+      </div>
+    </div>
+    <div class="pet-card" data-type="dog">
+      <div class="pet-card-img"><img src="pet.webp" alt="Labrador"><span class="pet-badge badge-dog">Dog</span></div>
+      <div class="pet-body">
+        <div class="pet-name">Labrador</div>
+        <div class="pet-desc">Energetic and gentle. India's #1 most popular dog breed for homes.</div>
+      </div>
+    </div>
+    <div class="pet-card" data-type="dog">
+      <div class="pet-card-img"><img src="pom.webp" alt="Pomeranian"><span class="pet-badge badge-dog">Dog</span></div>
+      <div class="pet-body">
+        <div class="pet-name">Pomeranian</div>
+        <div class="pet-desc">Compact, fluffy and full of personality. Perfect for apartment living.</div>
+      </div>
+    </div>
+    <div class="pet-card" data-type="dog">
+      <div class="pet-card-img"><img src="https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?auto=format&fit=crop&w=600&q=80" alt="German Shepherd"><span class="pet-badge badge-dog">Dog</span></div>
+      <div class="pet-body">
+        <div class="pet-name">German Shepherd</div>
+        <div class="pet-desc">Intelligent, loyal and protective. A working breed that excels in every role.</div>
+      </div>
+    </div>
+
+    <div class="pet-card" data-type="cat">
+      <div class="pet-card-img"><img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&w=600&q=80" alt="Persian Cat"><span class="pet-badge badge-cat">Cat</span></div>
+      <div class="pet-body">
+        <div class="pet-name">Persian Cat</div>
+        <div class="pet-desc">Luxurious long fur and a calm, gentle temperament. A true aristocrat.</div>
+      </div>
+    </div>
+    <div class="pet-card" data-type="cat">
+      <div class="pet-card-img"><img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?auto=format&fit=crop&w=600&q=80" alt="Maine Coon"><span class="pet-badge badge-cat">Cat</span></div>
+      <div class="pet-body">
+        <div class="pet-name">Maine Coon</div>
+        <div class="pet-desc">The gentle giant of cats. Tufted ears and a dog-like friendly personality.</div>
+      </div>
+    </div>
+
+    <div class="pet-card" data-type="bird">
+      <div class="pet-card-img"><img src="https://images.unsplash.com/photo-1552728089-57bdde30beb3?auto=format&fit=crop&w=600&q=80" alt="Cockatiel"><span class="pet-badge badge-bird">Bird</span></div>
+      <div class="pet-body">
+        <div class="pet-name">Cockatiel</div>
+        <div class="pet-desc">Cheerful and affectionate. A whistling companion that loves human interaction.</div>
+      </div>
+    </div>
+
+    <div class="pet-card" data-type="other">
+      <div class="pet-card-img"><img src="du.jpg" alt="Rabbit"><span class="pet-badge badge-rabbit">Rabbit</span></div>
+      <div class="pet-body">
+        <div class="pet-name">Dutch Rabbit</div>
+        <div class="pet-desc">Calm, sociable and easy to care for. A wonderful first pet for families.</div>
+      </div>
+    </div>
+    
+    <!-- Additional pets -->
+    <div class="pet-card" data-type="dog">
+      <div class="pet-card-img"><img src="pug.webp" alt="Pug"><span class="pet-badge badge-dog">Dog</span></div>
+      <div class="pet-body">
+        <div class="pet-name">Pug</div>
+        <div class="pet-desc">Compact, affectionate and great with families.</div>
+      </div>
+    </div>
+
+    <div class="pet-card" data-type="dog">
+      <div class="pet-card-img"><img src="dach.webp" alt="Dachshund"><span class="pet-badge badge-dog">Dog</span></div>
+      <div class="pet-body">
+        <div class="pet-name">Dachshund</div>
+        <div class="pet-desc">Playful little hound with a big personality.</div>
+      </div>
+    </div>
+
+    <div class="pet-card" data-type="dog">
+      <div class="pet-card-img"><img src="bu.jpeg" alt="Bulldog"><span class="pet-badge badge-dog">Dog</span></div>
+      <div class="pet-body">
+        <div class="pet-name">Bulldog</div>
+        <div class="pet-desc">Gentle, loyal and easy-going companion.</div>
+      </div>
+    </div>
+
+    <div class="pet-card" data-type="cat">
+      <div class="pet-card-img"><img src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&w=600&q=80" alt="Ragdoll"><span class="pet-badge badge-cat">Cat</span></div>
+      <div class="pet-body">
+        <div class="pet-name">Ragdoll</div>
+        <div class="pet-desc">Large, affectionate cat with a relaxed temperament.</div>
+      </div>
+    </div>
+
+    <div class="pet-card" data-type="cat">
+      <div class="pet-card-img"><img src="sc.jpeg" alt="Scottish Fold"><span class="pet-badge badge-cat">Cat</span></div>
+      <div class="pet-body">
+        <div class="pet-name">Scottish Fold</div>
+        <div class="pet-desc">Sweet-natured cat known for its folded ears.</div>
+      </div>
+    </div>
+
+    <div class="pet-card" data-type="bird">
+      <div class="pet-card-img"><img src="par.jpeg" alt="Parakeet"><span class="pet-badge badge-bird">Bird</span></div>
+      <div class="pet-body">
+        <div class="pet-name">Parakeet</div>
+        <div class="pet-desc">Small, colourful and sociable — perfect for bird lovers.</div>
+      </div>
+    </div>
+
+    <div class="pet-card" data-type="bird">
+      <div class="pet-card-img"><img src="gray.jpeg" alt="African Grey"><span class="pet-badge badge-bird">Bird</span></div>
+      <div class="pet-body">
+        <div class="pet-name">African Grey</div>
+        <div class="pet-desc">Highly intelligent parrot, great for experienced bird owners.</div>
+      </div>
+    </div>
+
+    <div class="pet-card" data-type="other">
+      <div class="pet-card-img"><img src="bett.jpeg" alt="Betta Fish"><span class="pet-badge badge-fish">Fish</span></div>
+      <div class="pet-body">
+        <div class="pet-name">Betta Fish</div>
+        <div class="pet-desc">Vibrant, solitary fish that adds colour to any tank.</div>
+      </div>
+    </div>
+
+
+    <div class="pet-card" data-type="other">
+      <div class="pet-card-img"><img src="https://images.unsplash.com/photo-1501703979959-797917eb21c8?auto=format&fit=crop&w=600&q=80" alt="Ferret"><span class="pet-badge badge-rabbit">Ferret</span></div>
+      <div class="pet-body">
+        <div class="pet-name">Ferret</div>
+        <div class="pet-desc">Playful and curious; requires supervised playtime and enrichment.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="paw-row">🐾 🐾 🐾</div>
+
+<section id="services">
+  <div class="services-layout">
+    <div class="services-sticky">
+      <div class="section-eyebrow">Our Services</div>
+      <h2 class="section-title">Complete Care<br>Under One Roof</h2>
+      <p class="section-sub">Everything your pet needs — health, hygiene, and happiness — all in one convenient location in Bank Colony.</p>
+      <a href="#contact" class="btn btn-green" style="margin-top:8px">Book a Service →</a>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card svc1">
+        <div class="svc-icon">🩺</div>
+        <h3>Veterinary Clinic</h3>
+        <p>Comprehensive health care with compassion and expertise for every pet, big or small.</p>
+        <ul class="svc-list">
+          <li>Full health check-ups</li>
+          <li>Vaccination programmes</li>
+          <li>Emergency care</li>
+          <li>Deworming & tick removal</li>
+          <li>Dental health assessment</li>
+        </ul>
+      </div>
+      <div class="svc-card svc2">
+        <div class="svc-icon">✂️</div>
+        <h3>Professional Grooming</h3>
+        <p>Stress-free, gentle grooming sessions to keep your pet looking and feeling their best.</p>
+        <ul class="svc-list">
+          <li>Bath & blow dry</li>
+          <li>Hair trimming & styling</li>
+          <li>Nail clipping</li>
+          <li>Ear cleaning</li>
+          <li>Breed-specific styling</li>
+        </ul>
+      </div>
+      <div class="svc-card svc3">
+        <div class="svc-icon">🛍️</div>
+        <h3>Pet Boutique</h3>
+        <p>Premium-quality supplies, foods and accessories carefully curated for pet health and joy.</p>
+        <ul class="svc-list">
+          <li>Nutritious pet food brands</li>
+          <li>Toys & enrichment items</li>
+          <li>Collars, leashes & beds</li>
+          <li>Hygiene & grooming products</li>
+          <li>Vitamins & supplements</li>
+        </ul>
+      </div>
+      <div class="svc-card svc4">
+        <div class="svc-icon">💉</div>
+        <h3>Vaccination & Wellness</h3>
+        <p>Scheduled vaccination plans and preventive wellness programmes to keep disease at bay.</p>
+        <ul class="svc-list">
+          <li>Core dog & cat vaccines</li>
+          <li>Anti-rabies vaccination</li>
+          <li>Puppy & kitten packages</li>
+          <li>Wellness health records</li>
+          <li>Reminder follow-ups</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="section-eyebrow">Why Choose Us</div>
+  <h2 class="section-title">Care You Can Always<br>Count On</h2>
+  <p class="section-sub">We combine professional expertise, top-tier hygiene, and genuine love for animals to make every visit special for you and your pet.</p>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">👨‍⚕️</div>
+      <h4>Expert Veterinary Team</h4>
+      <p>Our qualified vets bring years of experience caring for a wide range of animals with skill and compassion.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🧼</div>
+      <h4>Top-Tier Cleanliness</h4>
+      <p>We maintain rigorous hygiene and sanitisation protocols so your pet is always in a safe, germ-free environment.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">💬</div>
+      <h4>WhatsApp Support</h4>
+      <p>Quick answers to your questions, appointment booking, and follow-up care — all on WhatsApp for your convenience.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📍</div>
+      <h4>Neighbourhood Convenience</h4>
+      <p>Centrally located in Bank Colony, Khammam — your trusted local pet care destination, easy to reach anytime.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🐾</div>
+      <h4>All Pets Welcome</h4>
+      <p>Dogs, cats, birds, rabbits, fish, hamsters — we care for every kind of pet with equal love and attention.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">💰</div>
+      <h4>Affordable Care</h4>
+      <p>Premium quality care at fair, transparent prices — because good pet health shouldn't break the bank.</    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="section-eyebrow">Testimonials</div>
+  <h2 class="section-title">What Pet Parents Say</h2>
+  <p class="section-sub">Real experiences from real families in Khammam who trust us with their beloved pets.</p>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Took my Golden Retriever Bruno for grooming and a check-up. The staff was incredibly gentle with him and the clinic was spotlessly clean. Highly recommend!"</p>
+      <div class="review-author">
+        <div class="review-avatar" style="background:#FFE0C8">🐕</div>
+        <div>
+          <div class="review-name">Priya Reddy</div>
+          <div class="review-pet">Owner of Bruno, Golden Retriever</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"My Persian cat Meow gets very stressed at clinics, but the team here handled her so calmly. Their patience and professionalism is outstanding."</p>
+      <div class="review-author">
+        <div class="review-avatar" style="background:#D8D8FF">🐱</div>
+        <div>
+          <div class="review-name">Sanjay Kumar</div>
+          <div class="review-pet">Owner of Meow, Persian Cat</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Best pet boutique in Khammam! Found premium dog food I couldn't get anywhere else locally. The staff gave helpful advice on nutrition too."</p>
+      <div class="review-author">
+        <div class="review-avatar" style="background:#C8EEFF">🦜</div>
+        <div>
+          <div class="review-name">Anitha Sharma</div>
+          <div class="review-pet">Owner of Rio, Lovebird</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="paw-row">🐾 🐾 🐾</div>
+
+<section id="location">
+  <div class="section-eyebrow">Find Us</div>
+  <h2 class="section-title">Visit Us in<br>Bank Colony, Khammam</h2>
+  <p class="section-sub">We're conveniently located and always happy to welcome you and your pet.</p>
+  <div class="location-wrap">
+    <div class="map-frame">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15255.244365287757!2d80.12648507851564!3d17.253013800000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35f79a9b2b35cd%3A0x633e70d4c9d5d5b7!2sBank%20Colony%2C%20Khammam%2C%20Telangana!5e0!3m2!1sen!2sin!4v1715690000000" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    <div class="loc-cards">
+      <div class="loc-card">
+        <div class="loc-icon">📍</div>
+        <div>
+          <div class="loc-label">Address</div>
+          <div class="loc-val">Paw Love Pet Care<br>Bank Colony, Khammam<br>Telangana – 507001</div>
+        </div>
+      </div>
+      <div class="loc-card">
+        <div class="loc-icon">📞</div>
+        <div>
+          <div class="loc-label">Phone</div>
+          <div class="loc-val"><a href="tel:+918904583733">+91 89045 83733</a></div>
+        </div>
+      </div>
+      <div class="loc-card">
+        <div class="loc-icon">🕐</div>
+        <div>
+          <div class="loc-label">Working Hours</div>
+          <div class="loc-val">Mon – Sat: 9:00 AM – 8:00 PM<br>Sunday: 10:00 AM – 5:00 PM</div>
+        </div>
+      </div>
+      <div class="loc-card">
+        <div class="loc-icon">💬</div>
+        <div>
+          <div class="loc-label">WhatsApp</div>
+          <div class="loc-val"><a href="https://wa.me/918904583733" target="_blank">Chat with us on WhatsApp →</a></div>
+        </div>
+      </div>
+      <a href="https://maps.google.com" target="_blank" class="btn btn-green" style="align-self:flex-start;margin-top:4px">🗺️ Get Directions</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-eyebrow">Get in Touch</div>
+  <h2 class="section-title">Book an Appointment</h2>
+  <p class="section-sub">Reach out for appointments, queries, or to learn more about our services. We love hearing from pet parents!</p>
+  <div class="contact-layout">
+    <div class="contact-left">
+      <div class="contact-cta-cards">
+        <a href="tel:+918904583733" class="cta-card btn-terra" style="text-decoration:none">
+          <div class="cta-icon">📞</div>
+          <div>
+            <div class="cta-lbl">Call Us Directly</div>
+            <div class="cta-val">+91 89045 83733</div>
+          </div>
+        </a>
+        <a href="https://wa.me/918904583733" target="_blank" class="cta-card" style="text-decoration:none">
+          <div class="cta-icon">💬</div>
+          <div>
+            <div class="cta-lbl">WhatsApp</div>
+            <div class="cta-val">Chat Instantly on WhatsApp</div>
+          </div>
+        </a>
+        <div class="cta-card">
+          <div class="cta-icon">📍</div>
+          <div>
+            <div class="cta-lbl">Visit Us</div>
+            <div class="cta-val">Bank Colony, Khammam</div>
+          </div>
+        </div>
+        <div class="cta-card">
+          <div class="cta-icon">🕐</div>
+          <div>
+            <div class="cta-lbl">Open Today</div>
+            <div class="cta-val">9:00 AM – 8:00 PM</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-box">
+      <h3>Send an Inquiry</h3>
+      <div class="form-row">
+        <div class="fg">
+          <label>Your Name</label>
+          <input type="text" placeholder="e.g. Ravi Kumar">
+        </div>
+        <div class="fg">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="+91 98765 43210">
+        </div>
+      </div>
+      <div class="fg">
+        <label>Your Pet's Name & Breed</label>
+        <input type="text" placeholder="e.g. Bruno – Golden Retriever">
+      </div>
+      <div class="fg">
+        <label>Service Required</label>
+        <select>
+          <option value="">Select a service…</option>
+          <option>Veterinary Consultation</option>
+          <option>Grooming Appointment</option>
+          <option>Vaccination</option>
+          <option>Pet Boutique / Supplies</option>
+          <option>General Inquiry</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label>Message</label>
+        <textarea placeholder="Tell us about your pet and what you need…"></textarea>
+      </div>
+      <button class="submit-btn" onclick="alert('Thank you! We will contact you shortly. 🐾')">Send Message →</button>
+    </div>
+  </div>
+</section>
+
+  <section id="faq">
+    <div class="section-eyebrow">Common Questions</div>
+    <h2 class="section-title">Need to Know?</h2>
+    <div class="faq-layout">
+      <div class="faq-grid">
+        <div class="faq-item">
+          <details style="padding: 15px;">
+            <summary style="font-weight: 600; cursor: pointer;">What vaccinations does my puppy need?</summary>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: var(--ink2);">Puppies typically need a series of vaccinations starting at 6-8 weeks. Contact us to get a personalized schedule!</p>
+          </details>
+        </div>
+        <div class="faq-item">
+          <details style="padding: 15px;">
+            <summary style="font-weight: 600; cursor: pointer;">How do I book a grooming session?</summary>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: var(--ink2);">You can book directly via the WhatsApp button or fill out the form at the bottom of this page.</p>
+          </details>
+        </div>
+        <div class="faq-item">
+          <details style="padding: 15px;">
+            <summary style="font-weight: 600; cursor: pointer;">When should I deworm my pet?</summary>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: var(--ink2);">Deworming schedules depend on age and lifestyle; puppies often begin at 2–3 weeks with follow-ups. Ask our vets for a tailored plan during your visit.</p>
+          </details>
+        </div>
+        <div class="faq-item">
+          <details style="padding: 15px;">
+            <summary style="font-weight: 600; cursor: pointer;">What should I feed my puppy?</summary>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: var(--ink2);">Choose a high-quality puppy formula appropriate for the breed size. We can recommend brands and feeding amounts based on age, weight and health.</p>
+          </details>
+        </div>
+        <div class="faq-item">
+          <details style="padding: 15px;">
+            <summary style="font-weight: 600; cursor: pointer;">How often should I groom my pet?</summary>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: var(--ink2);">Grooming frequency depends on coat type: long-haired breeds may need weekly brushing and monthly trims; short-haired breeds can be groomed less often. Ask our groomers for a plan.</p>
+          </details>
+        </div>
+        <div class="faq-item">
+          <details style="padding: 15px;">
+            <summary style="font-weight: 600; cursor: pointer;">Do you provide emergency care?</summary>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: var(--ink2);">Yes — we offer emergency triage during clinic hours and can advise immediate next steps. For after-hours emergencies, we can recommend the nearest 24/7 facility.</p>
+          </details>
+        </div>
+        <div class="faq-item">
+          <details style="padding: 15px;">
+            <summary style="font-weight: 600; cursor: pointer;">Can I bring my pet without an appointment?</summary>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: var(--ink2);">Walk-ins are accepted when possible, but appointments ensure timely care. Use the WhatsApp button to check current availability or book online.</p>
+          </details>
+        </div>
+      </div>
+      <div class="faq-image-box">
+        <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=600&auto=format&fit=crop" alt="Animals" class="faq-image">
+      </div>
+    </div>
+  </section>
+
+<footer>
+  <div>© 2025 <strong>Paw Love Pet Care</strong> · Bank Colony, Khammam, Telangana  |  Made with ❤️ for pets</div>
+  <div class="footer-links">
+    <a href="#pets">Our Pets</a>
+    <a href="#services">Services</a>
+    <a href="#location">Location</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<a href="https://wa.me/918904583733" target="_blank" class="wa-btn" title="Chat on WhatsApp">💬</a>
+
+<script>
+function filterPets(type, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.pet-card').forEach(card => {
+    if (type === 'all' || card.dataset.type === type) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>
+</body>
+</html>
